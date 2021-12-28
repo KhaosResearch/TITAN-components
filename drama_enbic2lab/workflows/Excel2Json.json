@@ -1,0 +1,32 @@
+{
+   "tasks":[
+      {
+         "name":"ImportGenericFile1",
+         "module":"drama.core.catalog.load.ImportFile",
+         "params":{
+            "url":"http://192.168.213.23:8090/soil/input_soil.zip"
+         },
+         "inputs":{
+
+         }
+      },
+      {
+         "name":"ComponentExcel2Json1",
+         "module":"drama_enbic2lab.catalog.soil.Excel2Json",
+         "params":{
+            "author":"Khaos developer",
+            "group":"Khaos",
+            "project":"Soil data"
+         },
+         "inputs":{
+            "TempFile":"ImportGenericFile1.TempFile"
+         }
+      }
+   ],
+   "labels":[
+      "string"
+   ],
+   "metadata":{
+
+   }
+}

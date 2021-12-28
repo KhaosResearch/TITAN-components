@@ -1,0 +1,46 @@
+{
+   "tasks": [
+      {
+         "name": "ImportGenericFile1",
+         "module": "drama.core.catalog.load.ImportFile",
+         "params": {
+            "url": "http://192.168.213.3:9000/soil/ExampleData.sav"
+         },
+         "inputs": {}
+      },
+      {
+         "name": "ComponentSPSStoCSV",
+         "module": "drama_enbic2lab.catalog.soil.SpssToCSV",
+         "params": {
+            "drop_index": true
+         },
+         "inputs": {
+            "TempFile": "ImportGenericFile1.TempFile"
+         }
+      },
+      {
+         "name": "ComponentDataNormalization",
+         "module": "drama_enbic2lab.catalog.soil.DataNormalization",
+         "params": {},
+         "inputs": {
+            "SimpleTabularDataset": "ComponentSPSStoCSV.SimpleTabularDataset"
+         }
+      },
+      {
+         "name": "ComponentPCA",
+         "module": "drama_enbic2lab.catalog.soil.Pca",
+         "params": {
+            "variance_explained": 75,
+            "whiten": true,
+            "number_components": 0
+         },
+         "inputs": {
+            "SimpleTabularDataset": "ComponentDataNormalization.SimpleTabularDataset"
+         }
+      }
+   ],
+   "labels": [
+      "string"
+   ],
+   "metadata": {}
+}

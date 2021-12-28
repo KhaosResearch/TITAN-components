@@ -1,0 +1,56 @@
+{
+   "tasks": [
+      {
+         "name": "ImportGenericFile1",
+         "module": "drama.core.catalog.load.ImportFile",
+         "params": {
+            "url": "http://192.168.213.3:9000/water/AEMETPrecipitationTest.xlsx"
+         },
+         "inputs": {}
+      },
+      {
+         "name": "ComponentPrecipitationMatrixTransformation",
+         "module": "drama_enbic2lab.catalog.water.PrecipitationMatrixTransformation",
+         "params": {},
+         "inputs": {
+            "TempFile": "ImportGenericFile1.TempFile"
+         }
+      },
+      {
+         "name": "ComponentDataExtraction",
+         "module": "drama_enbic2lab.catalog.water.DataExtraction",
+         "params": {},
+         "inputs": {
+            "SimpleTabularDataset": "ComponentPrecipitationMatrixTransformation.SimpleTabularDataset"
+         }
+      },
+      {
+         "name": "ComponentPrecipitationSeriesCompletition",
+         "module": "drama_enbic2lab.catalog.water.PrecipitationSeriesCompletition",
+         "params": {
+            "start_date": "1974-10-01",
+            "end_date": "2018-09-30",
+            "target_station": "GALAROZA",
+            "analysis_stations": [
+               "JABUGO",
+               "CORTEGANA",
+               "ARACENA",
+               "ALAJAR"
+            ],
+            "priorize": "r2",
+            "tests": [
+               "pettit",
+               "shnt",
+               "buishand"
+            ]
+         },
+         "inputs": {
+            "SimpleTabularDataset": "ComponentPrecipitationMatrixTransformation.SimpleTabularDataset"
+         }
+      }
+   ],
+   "labels": [
+      "string"
+   ],
+   "metadata": {}
+}

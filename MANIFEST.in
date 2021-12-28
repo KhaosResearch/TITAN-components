@@ -1,0 +1,4 @@
+include README.md
+include drama_enbic2lab/catalog/air/templates/*.jinja
+include drama_enbic2lab/catalog/soil/tests/resources/*.csv
+include drama_enbic2lab/catalog/soil/tests/resources/*.sav

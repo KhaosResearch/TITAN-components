@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/estaciones.dwt" codeOutsideHTMLIsLocked="false" -->
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Estación aerobiológica Universidad de Málaga</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/small-business.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container"><a class="navbar-brand" href="../index.html" style="font-size: 1rem">Aerobiología - Universidad de Málaga</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" align="center"> <a class="nav-link" href="../index.html">Inicio<span class="sr-only">(current)</span> </a> </li>
+            <li class="dropdown nav-item active" align="center">
+              <a class="nav-link" href="../estaciones.html" data-toggle="dropdown">Estaciones<b class="caret"></b></a>
+			  <ul class="dropdown-menu">
+					<li><a class="nav-link" href="teatinos.html">Málaga Teatinos</a></li>
+					<li><a class="nav-link" href="centro.html">Málaga Centro</a></li>
+					<li><a class="nav-link" href="ronda.html">Ronda</a></li>
+					<li><a class="nav-link" href="sierranieves.html">Sierra de las Nieves (Parauta)</a></li>
+				  	<li><a class="nav-link" href="velez.html">Vélez-Málaga</a></li>
+				  	<li><a class="nav-link" href="nerja.html">Nerja</a></li>
+				  	<li><a class="nav-link" href="estepona.html">Estepona</a></li>
+			  		<li><a class="nav-link" href="antequera.html">Antequera</a></li>
+				</ul>
+            </li>
+            <li class="dropdown" align="center">
+			  <a class="nav-link" href="#" data-toggle="dropdown">Tipos polínicos<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a class="nav-link" href="../tipospolinicos/olivo.html">Olivo</a></li>
+					<li><a class="nav-link" href="../tipospolinicos/graminea.html">Gramíneas</a></li>
+					<li><a class="nav-link" href="../tipospolinicos/plantago.html">Plantago</a></li>
+				  	<li><a class="nav-link" href="../tipospolinicos/cupresacea.html">Cupresáceas</a></li>
+				  	<li><a class="nav-link" href="../tipospolinicos/quercus.html">Quercus</a></li>
+				  	<li><a class="nav-link" href="../tipospolinicos/urtica.html">Urticáceas</a></li>
+				  	<li><a class="nav-link" href="../tipospolinicos/chenopodio.html">Chenopodios/Amarantos</a></li>
+					<li><a class="nav-link" href="../tipospolinicos/platanus.html">Platanus</a></li>
+					<li><a class="nav-link" href="../tipospolinicos/pinus.html">Pinos</a></li>
+					<li><a class="nav-link" href="../tipospolinicos/casuarina.html">Casuarina</a></li>
+				</ul>
+            </li>
+              <li class="dropdown" align="center">
+			  <a class="nav-link" href="#" data-toggle="dropdown">Información adicional<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a class="nav-link" href="../infadicional/quienessomos/quienessomos.html">Quiénes somos</a></li>
+					<li><a class="nav-link" href="../infadicional/enlaces.html">Enlaces</a></li>
+					<li><a class="nav-link" href="../infadicional/publicaciones.html">Publicaciones</a></li>
+				  	<li><a class="nav-link" href="../infadicional/preguntas.html">Preguntas frecuentes</a></li>
+				</ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- InstanceBeginEditable name="Regedit2" -->
+	<div class="captadores rounded">
+		<h2>{{station}}</h2>
+	</div>
+	  <div class="margen20" align="center">
+	    <h4>{{title_date}}</h4>
+	  </div>
+<div class="row" align="center">
+	<div class="tabla" align="">
+	  <table  id="customers">
+	<tr>
+		<th rowspan="2">Tipos polínicos</th>
+		<th rowspan="2">Capacidad alergénica</th>
+		<th colspan="7">Niveles de concentración (Nº granos de polen / m<sup>3</sup> aire)</th>
+		<th rowspan="2">Pronóstico</th>
+		<td rowspan="12" width="auto" bgcolor="" style="border-width: 0px">	<a href="calteatinos.html"><div align="">
+	<h2 class="margen20">Calendario polínico</h2>
+	<img src="calendarios/malaga.jpg" class="rounded" alt="auto" width="320" align="middle">
+	</div></a></td>
+	</tr>
+	<tr>
+		<th>Lunes</th>
+		<th>Martes</th>
+		<th>Miércoles</th>
+		<th>Jueves</th>
+		<th>Viernes</th>
+		<th>Sábado</th>
+		<th>Domingo</th>
+    </tr>
+    {% for polen_type in polen_data.values(): %}
+	<tr>
+		<td>{{polen_type['name']}}</td>
+		<td>{{polen_type['allergy']}}</td>
+		<td><ul class="semaforo {{polen_type['monday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['tuesday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['wednesday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['thursday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['friday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['saturday']}}">
+			<li></li>
+			</ul></td>
+		<td><ul class="semaforo {{polen_type['sunday']}}">
+			<li></li>
+			</ul></td>
+		{% if 'forecast' in polen_type %}
+		<td>{{polen_type['forecast']}}</td>
+		{% else %}
+		<td>No disponible</td>
+		{% endif %}
+    </tr>
+    {% endfor %}
+	<tr>
+		<td colspan="10" align="center"><ul class="semaforo2 gris2 verde2 naranja2 rojo2 negro2">
+			<li></li>
+			<li>Nulo</li>
+			<li></li><li>Bajo</li>
+			<li></li><li>Moderado</li>
+			<li></li><li>Elevado</li>
+			<li></li><li>Extremo</li>
+			</ul></td>
+		  </tr>
+	  </table>
+		</div>
+
+	  </div>
+<div align="center"><a class="btn btn-primary btn-lg" href="../infadicional/preguntas.html"><h6>¿Por qué no aparece el polen de hoy?</h6></a></div>
+<div class="row my-4">
+	<div class="col-lg-4" align="left" style="padding: 0px">
+		<div>
+<img src="fotos/captadorteatinos.JPG" width="90%" height="100%" class="img-est rounded margen20col" align="left" alt="auto"></div>
+	</div>
+	<div class="col-lg-6 col-6" align="center"><div class="text-left"><h5 align=""><strong>Pronóstico</strong></h5>
+	  <h6 style="text-align: justify">Las concentraciones de todos los tipos polínicos se mantienen bajas. Para las próximas semanas se espera un incremento de las de cupresáceas. </h6>
+	</div>
+
+</div>
+	</div>
+
+      <!-- InstanceEndEditable -->
+    <!-- Footer -->
+    
+    <footer class="py-5 bg-dark">
+  <div class="container"> <a href="https://www.uco.es/rea/" target="_blank"><img src="../LogoREA.jpg" width="100" height="68" alt="" align="right"></a>
+	<p class="m-0 text-center text-white"><a href="http://www.uco.es/raa/" target="_blank"><img src="../LogoRAA.gif" width="100" height="80" alt="" align="left"></a>Departamento de Biología Vegetal. Facultad de Ciencias. Universidad de Málaga<br>
+	  Campus de teatinos s/n 29071 MÁLAGA<br><a style="color:white" href="mailto:aerox@uma.es">Contacto</a></p>
+</div>
+			
+<!-- /.container -->
+  </footer>
+<!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+<!-- InstanceEnd --></html>

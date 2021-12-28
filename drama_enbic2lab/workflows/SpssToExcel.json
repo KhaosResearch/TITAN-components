@@ -1,0 +1,30 @@
+{
+   "tasks":[
+      {
+         "name":"ImportGenericFile1",
+         "module":"drama.core.catalog.load.ImportFile",
+         "params":{
+            "url":"http://192.168.213.3:9000/soil/ExampleData.sav"
+         },
+         "inputs":{
+            
+         }
+      },
+      {
+         "name":"ComponentSPSStoExcel",
+         "module":"drama_enbic2lab.catalog.soil.SpssToExcel",
+         "params":{
+            "drop_null":false
+         },
+         "inputs":{
+            "TempFile":"ImportGenericFile1.TempFile"
+         }
+      }
+   ],
+   "labels":[
+      "string"
+   ],
+   "metadata":{
+      
+   }
+}

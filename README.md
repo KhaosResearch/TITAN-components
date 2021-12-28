@@ -1,4 +1,4 @@
-## [drama-titan](https://github.com/benhid/drama-titan) 
+## [drama-enbic2lab](https://bitbucket.org/khaosresearchgroup/drama-enbic2lab) 
 
 To execute tests:
 

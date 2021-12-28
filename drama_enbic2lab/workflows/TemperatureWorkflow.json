@@ -1,0 +1,63 @@
+{
+   "tasks": [
+      {
+         "name": "ImportGenericFile1",
+         "module": "drama.core.catalog.load.ImportFile",
+         "params": {
+            "url": "http://192.168.213.3:9000/water/AEMETTemperaturaTest.xlsx"
+         },
+         "inputs": {}
+      },
+      {
+         "name": "ComponentTemperatureMatrixTransformation",
+         "module": "drama_enbic2lab.catalog.water.TemperatureMatrixTransformation",
+         "params": {},
+         "inputs": {
+            "TempFile": "ImportGenericFile1.TempFile"
+         }
+      },
+      {
+         "name": "ComponentDataExtractionMax",
+         "module": "drama_enbic2lab.catalog.water.DataExtraction",
+         "params": {},
+         "inputs": {
+            "SimpleTabularDatasetMax": "ComponentTemperatureMatrixTransformation.SimpleTabularDatasetMax"
+         }
+      },
+      {
+         "name": "ComponentDataExtractionMin",
+         "module": "drama_enbic2lab.catalog.water.DataExtraction",
+         "params": {},
+         "inputs": {
+            "SimpleTabularDatasetMin": "ComponentTemperatureMatrixTransformation.SimpleTabularDatasetMin"
+         }
+      },
+      {
+         "name": "ComponentTemperatureSeriesCompletition",
+         "module": "drama_enbic2lab.catalog.water.TemperatureSeriesCompletition",
+         "params": {
+            "start_date": "1918-10-01",
+            "end_date": "1921-09-30",
+            "target_station": "QUESADA (FUENTE DEL PINO)",
+            "analysis_stations": [
+               "POZO ALCON (PRADOS DE CUENCA)",
+               "POZO ALCON (EL HORNICO)"
+            ],
+            "priorize": "r2",
+            "tests": [
+               "pettit",
+               "shnt",
+               "buishand"
+            ]
+         },
+         "inputs": {
+            "SimpleTabularDatasetMax": "ComponentTemperatureMatrixTransformation.SimpleTabularDatasetMax",
+            "SimpleTabularDatasetMin": "ComponentTemperatureMatrixTransformation.SimpleTabularDatasetMin"
+         }
+      }
+   ],
+   "labels": [
+      "string"
+   ],
+   "metadata": {}
+}
